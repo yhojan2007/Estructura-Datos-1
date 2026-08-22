@@ -84,6 +84,112 @@ else:
 
 
 # =============================================================================
-# Desafío 4 de Implementación de Lista Enlazada 
+# Desafío 4 de Implementación de Circunferencia
 # =============================================================================
 
+class Punto:
+    def __init__(self, x: int | float, y: int | float) -> None:
+        self.x: int | float = x
+        self.y: int | float = y
+
+    def __str__(self) -> str:
+        return f"({self.x}, {self.y})"
+
+class Circunferencia:
+    def __init__(self, centro: Punto, radio: int | float) -> None:
+        # FIX: Se crea una nueva instancia de Punto para el centro
+        # para evitar que modificaciones externas al objeto 'centro' original afecten esta circunferencia.
+        self.centro: Punto = Punto(centro.x, centro.y)
+        self.radio: int | float = radio
+
+    def __str__(self) -> str:
+        return f"Circunferencia con centro en {self.centro} y radio {self.radio}"
+
+# --- Prueba del Alumno ---
+mi_punto_original: Punto = Punto(1, 2)
+mi_circunferencia: Circunferencia = Circunferencia(mi_punto_original, 5)
+
+print(f"Circunferencia inicial: {mi_circunferencia}")
+
+# El alumno modifica el punto original
+mi_punto_original.x = 10
+mi_punto_original.y = 20
+
+print(f"Circunferencia después de modificar el punto original: {mi_circunferencia}")
+
+
+# =============================================================================
+# Desafío 5 de Implementación de Garaje
+# =============================================================================
+
+class Automovil:
+    def __init__(self, marca: str, modelo: str, color: str) -> None:
+        self.marca: str = marca
+        self.modelo: str = modelo
+        self.color: str = color
+
+    def __str__(self) -> str:
+        return f"{self.color} {self.marca} {self.modelo}"
+
+class Garaje:
+    def __init__(self) -> None:
+        self.automoviles: list[Automovil] = []
+
+    def agregar_automovil(self, auto: Automovil) -> None:
+        self.automoviles.append(auto)
+
+    def mostrar_automoviles(self) -> None:
+        print("Automóviles en el garaje:")
+        for i, auto in enumerate(self.automoviles):
+            print(f"  {i+1}. {auto}")
+
+# --- Prueba del Alumno ---
+mi_garaje: Garaje = Garaje()
+
+# El alumno intenta añadir dos coches diferentes
+auto_toyota: Automovil = Automovil("Toyota", "Corolla", "Rojo")
+mi_garaje.agregar_automovil(auto_toyota)
+
+# FIX: Crear un NUEVO objeto Automovil para el segundo coche,
+# en lugar de modificar y reutilizar la misma variable.
+auto_honda: Automovil = Automovil("Honda", "Civic", "Azul")
+mi_garaje.agregar_automovil(auto_honda)
+
+mi_garaje.mostrar_automoviles()
+
+
+# =============================================================================
+# Desafío 6 de Implementación de Línea
+# =============================================================================
+
+class Punto:
+    def __init__(self, x: int | float, y: int | float) -> None:
+        self.x: int | float = x
+        self.y: int | float = y
+
+    def __str__(self) -> str:
+        return f"({self.x}, {self.y})"
+
+class Linea:
+    def __init__(self, inicio: Punto, fin: Punto) -> None:
+        # FIX: Se crean nuevas instancias de Punto para 'inicio' y 'fin'
+        # para asegurar que la Línea sea conceptualmente 'inmutable' y no se afecte por
+        # cambios externos a los objetos Punto originales.
+        self.inicio: Punto = Punto(inicio.x, inicio.y)
+        self.fin: Punto = Punto(fin.x, fin.y)
+
+    def __str__(self) -> str:
+        return f"Línea de {self.inicio} a {self.fin}"
+
+# --- Prueba del Alumno ---
+punto_a: Punto = Punto(0, 0)
+punto_b: Punto = Punto(5, 5)
+
+mi_linea: Linea = Linea(punto_a, punto_b)
+print(f"Línea original: {mi_linea}")
+
+# El alumno modifica uno de los puntos originales
+punto_a.x = 10
+punto_a.y = 10
+
+print(f"Línea después de modificar el punto 'A': {mi_linea}")
