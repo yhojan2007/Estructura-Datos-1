@@ -81,3 +81,9 @@ if contenedor.siguiente is not None:
     print(f"Contenido del segundo nodo (a través de 'contenedor.siguiente'): {contenedor.siguiente.valor}")
 else:
     print("ERROR: El primer nodo no apunta a un segundo nodo.")
+
+
+# =============================================================================
+# Desafío 4 de Implementación de Lista Enlazada 
+# =============================================================================
+
