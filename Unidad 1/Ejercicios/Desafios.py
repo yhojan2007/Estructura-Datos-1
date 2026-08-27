@@ -124,21 +124,27 @@ print(f"Circunferencia después de modificar el punto original: {mi_circunferenc
 
 class Automovil:
     def __init__(self, marca: str, modelo: str, color: str) -> None:
+        """Inicializa un objeto Automovil con marca, modelo y color."""
         self.marca: str = marca
         self.modelo: str = modelo
         self.color: str = color
 
     def __str__(self) -> str:
+        """Devuelve una cadena con el color, marca y modelo del automovil."""
         return f"{self.color} {self.marca} {self.modelo}"
 
 class Garaje:
+    """Representa un garaje que puede contener automoviles."""
     def __init__(self) -> None:
+        """Inicializa un objeto Garaje vacío."""
         self.automoviles: list[Automovil] = []
 
     def agregar_automovil(self, auto: Automovil) -> None:
+        """Agrega un automovil al garaje."""
         self.automoviles.append(auto)
 
     def mostrar_automoviles(self) -> None:
+        """Muestra los automoviles en el garaje."""
         print("Automóviles en el garaje:")
         for i, auto in enumerate(self.automoviles):
             print(f"  {i+1}. {auto}")
