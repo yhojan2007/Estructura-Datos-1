@@ -170,6 +170,7 @@ class ConjuntoEstatico:
         return f"ConjuntoEstatico(elementos={list(self._elementos)})"
 
 
+# Demostración de las operaciones del conjunto estático
 def demostrar() -> None:
     """Ejecuta una demostración de las operaciones del conjunto estático."""
     conjunto_a = ConjuntoEstatico(capacidad=5)
