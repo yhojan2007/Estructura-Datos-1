@@ -5,11 +5,13 @@ class Nodo:
         self.anterior: Nodo | None = None
 
 class ListaDoble:
+    """Clase que representa una lista doblemente enlazada"""
     def __init__(self):
         self.inicio = None
         self.final = None
         self._tamano = 0
-    def inser_inicio(self, dato):
+
+    def insert_inicio(self, dato):
         nuevo_nodo=Nodo(dato)
         if self.inicio is None:
             self.inicio = nuevo_nodo
@@ -19,7 +21,7 @@ class ListaDoble:
             nuevo_nodo.siguiente=self.inicio
             self.inicio = nuevo_nodo
 
-    def inser_final(self, dato):
+    def insert_final(self, dato):
         nuevo_nodo=Nodo(dato)
         if self.final is None:
             self.inicio = nuevo_nodo
@@ -38,7 +40,7 @@ class ListaDoble:
             self.inicio.anterior = None
             return dato
         
-    def sacer_final(self):
+    def sacar_final(self):
         if self.final is None:
             return None
         else: 
